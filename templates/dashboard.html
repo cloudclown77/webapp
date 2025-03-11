@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Admin Dashboard</h2>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <a href="{{ url_for('customers.add_customer') }}" class="btn btn-success">Add Customer</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ url_for('customers.view_customers') }}" class="btn btn-primary">View Customers</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

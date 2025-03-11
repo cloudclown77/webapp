@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Customer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Add Customer</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label">Domain</label>
+            <input type="text" name="domain" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Product</label>
+            <input type="text" name="product" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">SKU</label>
+            <input type="text" name="sku" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Creation_Date</label>
+            <input type="date" name="creation_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Renew_Date</label>
+            <input type="date" name="renew_date" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Subscription_Status</label>
+            <input type="text" name="sub_status" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Payment_Plan</label>
+            <input type="text" name="payment_plan" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Assigned_Licence</label>
+            <input type="text" name="assigned_licence" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Purchaced_Licence</label>
+            <input type="text" name="purchaced_licence" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Customer_ID</label>
+            <input type="text" name="customer_id" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cloud_ID</label>
+            <input type="text" name="cloud_id" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Provision_ID</label>
+            <input type="text" name="provision_id" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Customer</button>
+    </form>
+</div>
+{% endblock %}
