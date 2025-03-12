@@ -27,19 +27,19 @@
         <tbody>
             {% for customer in customers %}
             <tr>
-                <td>{{ customer[0] }}</td>
-                <td>{{ customer[1] }}</td>
-                <td>{{ customer[2] }}</td>
-                <td>{{ customer[3] }}</td>
-                <td>{{ customer[4] }}</td>
-                <td>{{ customer[5] }}</td>
-                <td>{{ customer[6] }}</td>
-                <td>{{ customer[7] }}</td>
-                <td>{{ customer[8] }}</td>
-                <td>{{ customer[9] }}</td>
-                <td>{{ customer[10] }}</td>
-                <td>{{ customer[11] }}</td>
-                <td>{{ customer[12] }}</td>
+                <td>{{ customer['id'] }}</td>
+                <td>{{ customer['domain'] }}</td>
+                <td>{{ customer['product'] }}</td>
+                <td>{{ customer['sku'] }}</td>
+                <td>{{ customer['creation_date'] }}</td>
+                <td>{{ customer['renew_date'] }}</td>
+                <td>{{ customer['sub_status'] }}</td>
+                <td>{{ customer['payment_plan'] }}</td>
+                <td>{{ customer['assigned_licence'] }}</td>
+                <td>{{ customer['purchaced_licence'] }}</td>
+                <td>{{ customer['customer_id'] }}</td>
+                <td>{{ customer['cloud_id'] }}</td>
+                <td>{{ customer['provision_id'] }}</td>
                 <td>
                     <a href="#" class="btn btn-info btn-sm">Edit</a>
                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
