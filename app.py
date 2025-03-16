@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 # MySQL Database Configuration (Update with your MySQL credentials)
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'rahul'  # Change if you have a different user
-app.config['MYSQL_PASSWORD'] = 'Xh4dJ-J+'  # Add your MySQL password if set
+app.config['MYSQL_USER'] = 'root'  # Change if you have a different user
+app.config['MYSQL_PASSWORD'] = '#Anonymous8'  # Add your MySQL password if set
 app.config['MYSQL_DB'] = 'customerpanelapp'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
@@ -31,32 +31,29 @@ def index():
 @app.route('/add', methods=['GET', 'POST'])
 def add_customer():
     if request.method == 'POST':
+        Domain = request.form['domain']
+        Product = request.form['product']
+        SKU = request.form['sku']
+        Creation_Date = request.form['creation_date']
+        Renew_Date = request.form['renew_date']
+        Sub_Status = request.form['sub_status']
+        payment_plan = request.form['payment_plan']
+        assigned_licence = request.form['assigned_licence']
+        purchaced_licence = request.form['purchaced_licence']
+        customer_id = request.form['customer_id']
+        cloud_id = request.form['cloud_id']
+        provision_id = request.form['provision_id']
+
         try:
-            domain = request.form['domain']
-            product = request.form['product']
-            sku = request.form['sku']
-            creation_date = request.form['creation_date']
-            renew_date = request.form['renew_date']
-            sub_status = request.form['sub_status']
-            payment_plan = request.form['payment_plan']
-            assigned_licence = request.form['assigned_licence']
-            purchaced_licence = request.form['purchaced_licence']
-            customer_id = request.form['customer_id']
-            cloud_id = request.form['cloud_id']
-            provision_id = request.form['provision_id']
-
-            cur = db.connection.cursor()
-            cur.execute("INSERT INTO customers (domain, product, sku, creation_date, renew_date, sub_status, payment_plan, assigned_licence, purchaced_licence, customer_id, cloud_id, provision_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                        (domain, product, sku, creation_date, renew_date, sub_status, payment_plan, assigned_licence, purchaced_licence, customer_id, cloud_id, provision_id))
-            db.connection.commit()
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO customers (domain, product, sku, creation_date, renew_date, sub_status, payment_plan, assigned_licence, purchaced_licence, customer_id, cloud_id, provision_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", 
+                        (Domain, Product, SKU, Creation_Date, Renew_Date, Sub_Status, payment_plan, assigned_licence, purchaced_licence, customer_id, cloud_id, provision_id))
+            mysql.connection.commit()
             cur.close()
-
             flash("Customer added successfully!", "success")
-            return redirect(url_for('customers'))
-
+            return redirect(url_for('index'))
         except Exception as e:
-            flash(f"Error: {str(e)}", "danger")
-            return redirect(url_for('add_customer'))
+            return f"Error: {e}"
 
     return render_template('add_customer.html')
 
